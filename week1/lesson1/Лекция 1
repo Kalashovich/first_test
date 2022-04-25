@@ -1,0 +1,18 @@
+Пайтон - интерпритатор
+
+компилятор - переводит весь код в машинный.
+интерпритатор - построчно переводит в двоичный код
+используется в:
+
+Данные
+веб
+DevOps сервера (хосты)
+Programming app
+gamedev (игра)
+
+
+#sudo apt install gnome-tweaks = установка гном доп. настроек
+
+
+sudo apt-get install <name_of_packet>
+sudo apt install <name_of_packet>
