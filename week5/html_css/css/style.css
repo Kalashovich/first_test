@@ -1,0 +1,31 @@
+/* .maintitle {
+    background: red;
+    margin: 50px;
+    padding: 100px;
+    font-size: 100px;
+}
+.maintitle:hover {
+    background: green;
+    color: white;
+
+    transition: 1s;
+}
+.image {
+    width: 100px;
+    height: 100px;
+} */
+
+ /* .parent div {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background: blue;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+} */
