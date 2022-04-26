@@ -1,0 +1,32 @@
+Импорта/экспеорт  базы данных:
+ 
+Import: psql -U <username> -d <db_name> -f <path_to_file>
+
+Export: pg_dump -U <owner_of_db> -d <db_name> <file_name>.sql
+
+JOIN: объединяет(соеднияет) в запросе два или более таблицы.
+ON: ставит условие при котором будут данные объединятся(соединяется). (В обычных запросах эквивалентен WHERE)
+SELECT <row> FROM <left_table> JOIN <right_table> ON <condition>
+
+LIKE: Выводит результат которые соответствует введеному шаблону. Зависит от регистра.
+
+ILIKE: То же самое, только независит от регистра
+
+SELECT <row> FROM <table_name> WHERE <row> LIKE 'B%';
+
+LIMIT; Позволяет нам вернуть данные в ограниченном количестве.
+
+SELECT <row> FROM <table> LIMIT <quantity>;
+
+GROUP BY: Разделяет строки, возвращаемые оператором SELECT на группы. И теперь для каждой группы можно преминить функцию.
+HAVING: Работает также как WHERE только в GROUP BY
+
+SELECT <row>, <row_function> FROM <table> GROUP BY <row>
+
+AVG(), COUNT(), MIN(), MAX(), SUM() - агрегатные функции
+
+UNION: объединяет таблицы с одинаковыми названиями стобцов (объединяет данные двух столбцов в единый столб)
+
+
+
+

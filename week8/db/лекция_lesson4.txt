@@ -1,0 +1,904 @@
+kalashovich@legion-y540-15irh:~$ psql
+psql (12.9 (Ubuntu 12.9-0ubuntu0.20.04.1))
+Type "help" for help.
+
+kalashovich=# CREATE ROLE shex;
+CREATE ROLE
+kalashovich=# \dt
+Did not find any relations.
+kalashovich=# \l
+kalashovich=# DROP ROLE shex ;
+DROP ROLE
+kalashovich=# CREATE DATABASE shex
+kalashovich-# ;
+CREATE DATABASE
+kalashovich=# psql -U kalashovich -d shex -f /home/kalashovich/shakespeare.sql
+kalashovich-# ;
+ERROR:  syntax error at or near "psql"
+LINE 1: psql -U kalashovich -d shex -f /home/kalashovich/shakespeare...
+        ^
+kalashovich=# \q
+kalashovich@legion-y540-15irh:~$ psql -U kalashovich -d test_import -f /home/kalashovich/Desktop/ev.19/week8/db/dump.sql
+SET
+SET
+SET
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+SET
+SET
+psql:/home/kalashovich/Desktop/ev.19/week8/db/dump.sql:32: ERROR:  relation "cities" already exists
+ALTER TABLE
+psql:/home/kalashovich/Desktop/ev.19/week8/db/dump.sql:47: ERROR:  relation "cities_id_seq" already exists
+ALTER TABLE
+ALTER SEQUENCE
+psql:/home/kalashovich/Desktop/ev.19/week8/db/dump.sql:70: ERROR:  relation "weathers" already exists
+ALTER TABLE
+psql:/home/kalashovich/Desktop/ev.19/week8/db/dump.sql:85: ERROR:  relation "weathers_id_seq" already exists
+ALTER TABLE
+ALTER SEQUENCE
+ALTER TABLE
+ALTER TABLE
+psql:/home/kalashovich/Desktop/ev.19/week8/db/dump.sql:118: ERROR:  duplicate key value violates unique constraint "cities_name_key"
+DETAIL:  Key (name)=(BIshkek) already exists.
+CONTEXT:  COPY cities, line 1
+psql:/home/kalashovich/Desktop/ev.19/week8/db/dump.sql:131: ERROR:  duplicate key value violates unique constraint "weathers_pkey"
+DETAIL:  Key (id)=(1) already exists.
+CONTEXT:  COPY weathers, line 1
+ setval 
+--------
+      2
+(1 row)
+
+ setval 
+--------
+      5
+(1 row)
+
+psql:/home/kalashovich/Desktop/ev.19/week8/db/dump.sql:153: ERROR:  relation "cities_name_key" already exists
+psql:/home/kalashovich/Desktop/ev.19/week8/db/dump.sql:161: ERROR:  multiple primary keys for table "cities" are not allowed
+psql:/home/kalashovich/Desktop/ev.19/week8/db/dump.sql:169: ERROR:  multiple primary keys for table "weathers" are not allowed
+kalashovich@legion-y540-15irh:~$ psql
+psql (12.9 (Ubuntu 12.9-0ubuntu0.20.04.1))
+Type "help" for help.
+
+kalashovich=# \l
+                                      List of databases
+    Name     |    Owner    | Encoding |   Collate   |    Ctype    |    Access privileges     
+-------------+-------------+----------+-------------+-------------+--------------------------
+ acosador    | kalashovich | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ films_db    | kalashovich | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ food_db     | kalashovich | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ kalashovich | postgres    | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | =Tc/postgres            +
+             |             |          |             |             | postgres=CTc/postgres   +
+             |             |          |             |             | kalashovich=CTc/postgres
+ postgres    | postgres    | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ shex        | kalashovich | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ template0   | postgres    | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | =c/postgres             +
+             |             |          |             |             | postgres=CTc/postgres
+ template1   | postgres    | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | =c/postgres             +
+             |             |          |             |             | postgres=CTc/postgres
+ test_db     | kalashovich | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ test_import | kalashovich | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ weather     | kalashovich | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+(11 rows)
+
+kalashovich=# \c shex 
+You are now connected to database "shex" as user "kalashovich".
+shex=# \dt
+Did not find any relations.
+shex=# \q
+kalashovich@legion-y540-15irh:~$ psql -U kalashovich -d shex -f /home/kalashovich/shakespeare.sqlSET
+SET
+SET
+SET
+SET
+SET
+CREATE EXTENSION
+COMMENT
+SET
+SET
+SET
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+COPY 945
+COPY 1266
+COPY 1346
+COPY 35465
+COPY 28830
+COPY 43
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+REVOKE
+REVOKE
+GRANT
+GRANT
+kalashovich@legion-y540-15irh:~$ psql
+psql (12.9 (Ubuntu 12.9-0ubuntu0.20.04.1))
+Type "help" for help.
+
+kalashovich=# \c shex ;
+You are now connected to database "shex" as user "kalashovich".
+shex=# \dt
+               List of relations
+ Schema |      Name      | Type  |    Owner    
+--------+----------------+-------+-------------
+ public | chapter        | table | kalashovich
+ public | character      | table | kalashovich
+ public | character_work | table | kalashovich
+ public | paragraph      | table | kalashovich
+ public | wordform       | table | kalashovich
+ public | work           | table | kalashovich
+(6 rows)
+
+shex=# SELECT * FROM wordform ;
+shex=# SELECT * FROM wordform ;
+shex=# SELECT * FROM wordform ;
+shex=# SELECT occurences FROM wordform ;
+shex=# SELECT occurences FROM wordform LIMIT 10 ;
+ occurences 
+------------
+      28932
+      27296
+      21120
+      20136
+      17169
+      14943
+      13989
+      12950
+      11512
+      11487
+(10 rows)
+
+shex=# SELECT occurences FROM wordform ;
+shex=# SELECT occurences FROM wordform LIMIT 10 ;
+ occurences 
+------------
+      28932
+      27296
+      21120
+      20136
+      17169
+      14943
+      13989
+      12950
+      11512
+      11487
+(10 rows)
+
+shex=# SELECT occurences FROM wordform ORDER BY occurences ASC LIMIT 10 ;
+ occurences 
+------------
+          1
+          1
+          1
+          1
+          1
+          1
+          1
+          1
+          1
+          1
+(10 rows)
+
+shex=# SELECT occurences FROM wordform ORDER BY occurences DESC LIMIT 10 ;
+ occurences 
+------------
+      28932
+      27296
+      21120
+      20136
+      17169
+      14943
+      13989
+      12950
+      11512
+      11487
+(10 rows)
+
+shex=# SELECT occurences FROM wordform ORDER BY DESC LIMIT 10 ;
+ERROR:  syntax error at or near "DESC"
+LINE 1: SELECT occurences FROM wordform ORDER BY DESC LIMIT 10 ;
+                                                 ^
+shex=# SELECT occurences FROM wordform ORDER BY occurences DESC LIMIT 10 ;
+ occurences 
+------------
+      28932
+      27296
+      21120
+      20136
+      17169
+      14943
+      13989
+      12950
+      11512
+      11487
+(10 rows)
+
+shex=# SELECT * FROM wordform ;
+shex=# SELECT * FROM wordform ;
+ERROR:  syntax error at or near "SELECT"dform ORDER BY occurences DESC LIMIT 10 ; FROM wordform ; 
+LINE 1: SELECT SELECT occurences FROM wordform ORDER BY occurences D...
+               ^
+ERROR:  syntax error at or near "FROM"
+LINE 1: FROM * FROM wordform ;
+shex=# SELECT plaintext FROM wordform WHERE plaintext ILIKE 'a%' ;
+shex=# SELECT * FROM work;
+shex=# SELECT * FROM work;
+shex=# SELECT genretype FROM work WHERE genretype ILIKE 'p';
+ genretype 
+-----------
+ p
+ p
+ p
+ p
+ p
+(5 rows)
+
+shex=# SELECT * FROM work;
+shex=# SELECT title FROM work WHERE genretype ILIKE 'p';
+         title          
+------------------------
+ Lover's Complaint
+ Passionate Pilgrim
+ Phoenix and the Turtle
+ Rape of Lucrece
+ Venus and Adonis
+(5 rows)
+
+shex=# \dt
+               List of relations
+ Schema |      Name      | Type  |    Owner    
+--------+----------------+-------+-------------
+ public | chapter        | table | kalashovich
+ public | character      | table | kalashovich
+ public | character_work | table | kalashovich
+ public | paragraph      | table | kalashovich
+ public | wordform       | table | kalashovich
+ public | work           | table | kalashovich
+(6 rows)
+
+shex=# SEELCT * FROM chapter ;
+ERROR:  syntax error at or near "SEELCT"
+LINE 1: SEELCT * FROM chapter ;
+        ^
+shex=# SELECT * FROM chapter ;
+shex=# SELECT * FROM character_work ;
+shex=# \dt
+               List of relations
+ Schema |      Name      | Type  |    Owner    
+--------+----------------+-------+-------------
+ public | chapter        | table | kalashovich
+ public | character      | table | kalashovich
+ public | character_work | table | kalashovich
+ public | paragraph      | table | kalashovich
+ public | wordform       | table | kalashovich
+ public | work           | table | kalashovich
+(6 rows)
+
+shex=# SELECT * FROM character ;
+shex=# \dt
+               List of relations
+ Schema |      Name      | Type  |    Owner    
+--------+----------------+-------+-------------
+ public | chapter        | table | kalashovich
+ public | character      | table | kalashovich
+ public | character_work | table | kalashovich
+ public | paragraph      | table | kalashovich
+ public | wordform       | table | kalashovich
+ public | work           | table | kalashovich
+(6 rows)
+
+shex=# SELECT * FROM p
+paragraph         pg_temp_1.        pg_toast_temp_1.  
+pg_catalog.       pg_toast.         public.           
+shex=# SELECT * FROM paragraph ;
+shex=# SELECT title FROM work WHERE genretype ILIKE 't' AND SELECT AVG(totalparagraphs) FROM work;
+ERROR:  syntax error at or near "SELECT"
+shex=# SELECT title FROM work WHERE genretype ILIKE 't' AND AVG(totalparagraphs) FROM work;
+ERROR:  syntax error at or near "FROM"
+LINE 1: ...HERE genretype ILIKE 't' AND AVG(totalparagraphs) FROM work;
+                                                             ^
+shex=# SELECT title FROM work WHERE genretype ILIKE 't' AND AVG(totalparagraphs);
+ERROR:  aggregate functions are not allowed in WHERE
+LINE 1: ...ECT title FROM work WHERE genretype ILIKE 't' AND AVG(totalp...
+                                                             ^
+shex=# SELECT title AVG(totalparagraphs) FROM work WHERE genretype ILIKE 't';
+ERROR:  syntax error at or near "("
+LINE 1: SELECT title AVG(totalparagraphs) FROM work WHERE genretype ...
+                        ^
+shex=# SELECT title AVG totalparagraphs FROM work WHERE genretype ILIKE 't';
+ERROR:  syntax error at or near "totalparagraphs"
+LINE 1: SELECT title AVG totalparagraphs FROM work WHERE genretype I...
+                         ^
+shex=# SELECT title, AVG totalparagraphs FROM work WHERE genretype ILIKE 't';
+ERROR:  column "avg" does not exist
+LINE 1: SELECT title, AVG totalparagraphs FROM work WHERE genretype ...
+                      ^
+shex=# SELECT title, AVG(totalparagraphs) FROM work WHERE genretype ILIKE 't';
+ERROR:  column "work.title" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT title, AVG(totalparagraphs) FROM work WHERE genretype...
+               ^
+shex=# SELECT AVG(totalparagraphs) FROM work WHERE genretype ILIKE 't';
+          avg          
+-----------------------
+ 1070.8181818181818182
+(1 row)
+
+shex=# SELECT title, AVG(totalparagraphs) FROM work WHERE genretype ILIKE 't';
+ERROR:  column "work.title" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT title, AVG(totalparagraphs) FROM work WHERE genretype...
+               ^
+shex=# SELECT AVG(totalparagraphs), title FROM work WHERE genretype ILIKE 't';
+ERROR:  column "work.title" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT AVG(totalparagraphs), title FROM work WHERE genretype...
+                                     ^
+shex=# SELECT AVG(totalparagraphs) FROM work WHERE genretype ILIKE 't';
+          avg          
+-----------------------
+ 1070.8181818181818182
+(1 row)
+
+shex=# \dt
+               List of relations
+ Schema |      Name      | Type  |    Owner    
+--------+----------------+-------+-------------
+ public | chapter        | table | kalashovich
+ public | character      | table | kalashovich
+ public | character_work | table | kalashovich
+ public | paragraph      | table | kalashovich
+ public | wordform       | table | kalashovich
+ public | work           | table | kalashovich
+(6 rows)
+
+shex=# select * from wordform ;
+shex=# SELECT AVG(plaintext) FROM work;
+ERROR:  column "plaintext" does not exist
+LINE 1: SELECT AVG(plaintext) FROM work;
+                   ^
+shex=# select * from wordform ;
+shex=# select * from wordform ;
+shex=# SELECT AVG(occurences) FROM work;
+ERROR:  column "occurences" does not exist
+LINE 1: SELECT AVG(occurences) FROM work;
+                   ^
+shex=# SELECT AVG(plaintext) FROM wordform;
+ERROR:  function avg(character varying) does not exist
+LINE 1: SELECT AVG(plaintext) FROM wordform;
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+shex=# select * from wordform ;
+shex=# SELECT AVG(occurences) FROM wordform;
+         avg         
+---------------------
+ 30.6699965313909122
+(1 row)
+
+shex=# SELECT * FROM work;
+shex=# SELECT * FROM work;
+shex=# SELECT AVG(totalwords) FROM work;
+        avg         
+--------------------
+ 20563.162790697674
+(1 row)
+
+shex=# SELECT title FROM work WHERE AVG(totalwords) > 20563;
+ERROR:  aggregate functions are not allowed in WHERE
+LINE 1: SELECT title FROM work WHERE AVG(totalwords) > 20563;
+                                     ^
+shex=# SELECT title FROM work WHERE AVG(totalwords) > 20563;
+ERROR:  aggregate functions are not allowed in WHERE
+LINE 1: SELECT title FROM work WHERE AVG(totalwords) > 20563;
+                                     ^
+shex=# SELECT * FROM work;
+shex=# SELECT title, totalwords FROM work WHERE AVG(totalwords) > 20563;
+ERROR:  aggregate functions are not allowed in WHERE
+LINE 1: SELECT title, totalwords FROM work WHERE AVG(totalwords) > 2...
+                                                 ^
+shex=# SELECT title FROM work HAVING AVG(totalwords) > 20563;
+ERROR:  column "work.title" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT title FROM work HAVING AVG(totalwords) > 20563;
+               ^
+shex=# SELECT * FROM work;
+shex=# SELECT title FROM work IF AVG(totalwords) > 20563;
+ERROR:  syntax error at or near "AVG"
+LINE 1: SELECT title FROM work IF AVG(totalwords) > 20563;
+                                  ^
+shex=# SELECT title FROM work IF AVG(totalwords) >= 20563;
+ERROR:  syntax error at or near "AVG"
+LINE 1: SELECT title FROM work IF AVG(totalwords) >= 20563;
+                                  ^
+shex=# SELECT title FROM work WHERE totalwords > 20563;
+shex=# SELECT title FROM work IF totalwords) >= 20563;
+ERROR:  syntax error at or near "totalwords"
+LINE 1: SELECT title FROM work IF totalwords) >= 20563;
+                                  ^
+shex=# SELECT title FROM work WHERE totalwords > 20563;
+shex=# SELECT * FROM character;
+shex=# SELECT * FROM character_work;
+shex=# SELECT * FROM work;
+      workid       |           title           |                 longtitle                 | year | genretype | notes |  source   | totalwords | totalparagraphs 
+-------------------+---------------------------+-------------------------------------------+------+-----------+-------+-----------+------------+-----------------
+ 12night           | Twelfth Night             | Twelfth Night, Or What You Will           | 1599 | c         |       | Moby      |      19837 |            1031
+ allswell          | All's Well That Ends Well | All's Well That Ends Well                 | 1602 | c         |       | Moby      |      22997 |            1025
+ antonycleo        | Antony and Cleopatra      | Antony and Cleopatra                      | 1606 | t         |       | Moby      |      24905 |            1344
+ asyoulikeit       | As You Like It            | As You Like It                            | 1599 | c         |       | Gutenberg |      21690 |             872
+ comedyerrors      | Comedy of Errors          | The Comedy of Errors                      | 1589 | c         |       | Moby      |      14692 |             661
+ coriolanus        | Coriolanus                | Coriolanus                                | 1607 | t         |       | Moby      |      27577 |            1226
+ cymbeline         | Cymbeline                 | Cymbeline, King of Britain                | 1609 | h         |       | Moby      |      27565 |             971
+ hamlet            | Hamlet                    | Tragedy of Hamlet, Prince of Denmark, The | 1600 | t         |       | Gutenberg |      30558 |            1275
+ henry4p1          | Henry IV, Part I          | History of Henry IV, Part I               | 1597 | h         |       | Moby      |      24579 |             884
+ henry4p2          | Henry IV, Part II         | History of Henry IV, Part II              | 1597 | h         |       | Gutenberg |      25692 |            1013
+ henry5            | Henry V                   | History of Henry V                        | 1598 | h         |       | Moby      |      26119 |             846
+ henry6p1          | Henry VI, Part I          | History of Henry VI, Part I               | 1591 | h         |       | Moby      |      21575 |             772
+ henry6p2          | Henry VI, Part II         | History of Henry VI, Part II              | 1590 | h         |       | Moby      |      25411 |             904
+ henry6p3          | Henry VI, Part III        | History of Henry VI, Part III             | 1590 | h         |       | Moby      |      24284 |             935
+ henry8            | Henry VIII                | History of Henry VIII                     | 1612 | h         |       | Moby      |      24629 |             779
+ juliuscaesar      | Julius Caesar             | The Tragedy of Julius Caesar              | 1599 | t         |       | Moby      |      19703 |             888
+ kingjohn          | King John                 | History of King John                      | 1596 | h         |       | Moby      |      20760 |             615
+ kinglear          | King Lear                 | The Tragedy of King Lear                  | 1605 | t         |       | Gutenberg |      26119 |            1177
+ loverscomplaint   | Lover's Complaint         | A Lover's Complaint                       | 1609 | p         |       | Moby      |       2559 |              47
+ loveslabours      | Love's Labour's Lost      | Love's Labour's Lost                      | 1594 | c         |       | Moby      |      21450 |            1120
+ macbeth           | Macbeth                   | The Tragedy of Macbeth                    | 1605 | t         |       | Moby      |      17121 |             758
+ measure           | Measure for Measure       | Measure for Measure                       | 1604 | c         |       | Moby      |      21773 |             980
+ merchantvenice    | Merchant of Venice        | Merchant of Venice, The                   | 1596 | c         |       | Moby      |      21291 |             718
+ merrywives        | Merry Wives of Windsor    | Merry Wives of Windsor, The               | 1600 | c         |       | Moby      |      21845 |            1161
+ midsummer         | Midsummer Night's Dream   | A Midsummer Night's Dream                 | 1595 | c         |       | Moby      |      16511 |             603
+ muchado           | Much Ado about Nothing    | Much Ado about Nothing                    | 1598 | c         |       | Moby      |      21157 |            1059
+ othello           | Othello                   | The Tragedy of Othello, Moor of Venice    | 1604 | t         |       | Moby      |      26450 |            1308
+ passionatepilgrim | Passionate Pilgrim        | The Passionate Pilgrim                    | 1598 | p         |       | Moby      |       3124 |              43
+ pericles          | Pericles                  | Pericles, Prince of Tyre                  | 1608 | h         |       | Moby      |      18529 |             748
+ phoenixturtle     | Phoenix and the Turtle    | The Phoenix and the Turtle                | 1601 | p         |       | Moby      |        353 |              19
+ rapelucrece       | Rape of Lucrece           | The Rape of Lucrece                       | 1594 | p         |       | Moby      |      15003 |             269
+ richard2          | Richard II                | History of Richard II                     | 1595 | h         |       | Moby      |      22411 |             628
+ richard3          | Richard III               | History of Richard III                    | 1592 | h         |       | Moby      |      29278 |            1210
+ romeojuliet       | Romeo and Juliet          | The Tragedy of Romeo and Juliet           | 1594 | t         |       | Moby      |      24553 |             989
+ sonnets           | Sonnets                   | Sonnets                                   | 1609 | s         |       | Moby      |      17515 |             154
+ tamingshrew       | Taming of the Shrew       | The Taming of the Shrew                   | 1593 | c         |       | Gutenberg |      21055 |             965
+ tempest           | Tempest                   | The Tempest                               | 1611 | c         |       | Moby      |      16628 |             698
+ timonathens       | Timon of Athens           | The Tragedy of Timon of Athens            | 1607 | t         |       | Moby      |      18206 |             865
+ titus             | Titus Andronicus          | Titus Andronicus                          | 1593 | t         |       | Moby      |      20710 |             654
+ troilus           | Troilus and Cressida      | Troilus and Cressida                      | 1601 | t         |       | Moby      |      26089 |            1295
+ twogents          | Two Gentlemen of Verona   | Two Gentlemen of Verona                   | 1594 | c         |       | Moby      |      17129 |             943
+ venusadonis       | Venus and Adonis          | Venus and Adonis                          | 1593 | p         |       | Moby      |       9870 |             201
+ winterstale       | The Winter's Tale         | The Winter's Tale                         | 1610 | c         |       | Moby      |      24914 |             812
+(43 rows)
+
+shex=# SELECT * FROM character_work;
+shex=# SELECT * FROM work;
+shex=# \dt
+               List of relations
+ Schema |      Name      | Type  |    Owner    
+--------+----------------+-------+-------------
+ public | chapter        | table | kalashovich
+ public | character      | table | kalashovich
+ public | character_work | table | kalashovich
+ public | paragraph      | table | kalashovich
+ public | wordform       | table | kalashovich
+ public | work           | table | kalashovich
+(6 rows)
+
+shex=# SELECT * FROM character;
+shex=# SELECT * FROM work;
+shex=# SELECT * FROM character_work;
+shex=# SELECT * FROM character;
+shex=# SELECT * FROM wor;
+ERROR:  relation "wor" does not exist
+LINE 1: SELECT * FROM wor;
+                      ^
+shex=# SELECT * FROM work;
+shex=# SELECT * FROM character_work;
+shex=# SELECT * FROM character;
+shex=# \й
+invalid command \й
+Try \? for help.
+shex=# \q
+kalashovich@legion-y540-15irh:~$ cd Desktop/ev.19/week8/db/
+kalashovich@legion-y540-15irh:~/Desktop/ev.19/week8/db$ ls
+dump.sql  lesson2.txt   lesson3.txt   ДБ
+inro.txt  lesson2.txt~  lesson3.txt~  ДБ~
+kalashovich@legion-y540-15irh:~/Desktop/ev.19/week8/db$ touch lesson4.txt
+kalashovich@legion-y540-15irh:~/Desktop/ev.19/week8/db$ psql
+psql (12.9 (Ubuntu 12.9-0ubuntu0.20.04.1))
+Type "help" for help.
+
+kalashovich=# CREATE DATABASE ENA;
+CREATE DATABASE
+kalashovich=# CREATE DATABASE weather_db;
+CREATE DATABASE
+kalashovich=# \c weather_db 
+You are now connected to database "weather_db" as user "kalashovich".
+weather_db=# CREATE TABLE cities(
+weather_db(# name varchar(80) primary key,
+weather_db(# country varchar(100),
+weather_db(# location point);
+CREATE TABLE
+weather_db=# \du
+weather_db=# \l
+weather_db=# \dt
+           List of relations
+ Schema |  Name  | Type  |    Owner    
+--------+--------+-------+-------------
+ public | cities | table | kalashovich
+(1 row)
+
+weather_db=# \d
+           List of relations
+ Schema |  Name  | Type  |    Owner    
+--------+--------+-------+-------------
+ public | cities | table | kalashovich
+(1 row)
+
+weather_db=# \dt
+           List of relations
+ Schema |  Name  | Type  |    Owner    
+--------+--------+-------+-------------
+ public | cities | table | kalashovich
+(1 row)
+
+weather_db=# CREATE TABLE weathers(
+weather_db(# city varchar(80) references cities(name),
+weather_db(# temp_to int,
+weather_db(# temp_hi int,
+weather_db(# date date);
+CREATE TABLE
+weather_db=# INSERT INTO cities VALUES (
+weather_db(# 'Bishkek','KG','(123,-84)'),
+weather_db-# ('Osh','KG','(124,-123)');
+INSERT 0 2
+weather_db=# \dt
+            List of relations
+ Schema |   Name   | Type  |    Owner    
+--------+----------+-------+-------------
+ public | cities   | table | kalashovich
+ public | weathers | table | kalashovich
+(2 rows)
+
+weather_db=# SELECT * FROM cities ;
+  name   | country |  location  
+---------+---------+------------
+ Bishkek | KG      | (123,-84)
+ Osh     | KG      | (124,-123)
+(2 rows)
+
+weather_db=# SELECT * FROM weathers ;
+ city | temp_to | temp_hi | date 
+------+---------+---------+------
+(0 rows)
+
+weather_db=# INSERT INTO weathers (city ,temp_to,temp_hi,date) VALUES
+weather_db-# ('Biskek',13,27,'2022-04-21'),
+weather_db-# ('Osh',-9,-1,'2021-01-20');
+ERROR:  insert or update on table "weathers" violates foreign key constraint "weathers_city_fkey"
+DETAIL:  Key (city)=(Biskek) is not present in table "cities".
+weather_db=# INSERT INTO weathers(city ,temp_to,temp_hi,date) VALUES
+('Biskek',13,27,'2022-04-21'),
+('Osh',-9,-1,'2021-01-20');
+ERROR:  insert or update on table "weathers" violates foreign key constraint "weathers_city_fkey"
+DETAIL:  Key (city)=(Biskek) is not present in table "cities".
+weather_db=# INSERT INTO weathers(city ,temp_to,temp_hi,date) VALUES
+('Biskek',13,27,'2022-04-21'),
+('Osh',-9,-1,'2021-01-20');
+ERROR:  insert or update on table "weathers" violates foreign key constraint "weathers_city_fkey"
+DETAIL:  Key (city)=(Biskek) is not present in table "cities".
+weather_db=# SELECT * FROM weathers 
+weather_db-# ;
+ city | temp_to | temp_hi | date 
+------+---------+---------+------
+(0 rows)
+
+weather_db=# INSERT INTO cities VALUES (
+'Bishkek','KG','(123,-84)'),
+('Osh','KG','(124,-123)');
+ERROR:  duplicate key value violates unique constraint "cities_pkey"
+DETAIL:  Key (name)=(Bishkek) already exists.
+weather_db=# INSERT INTO weathers(city ,temp_to,temp_hi,date) VALUES
+('Biskek',13,27,'2022-04-21'),
+('Osh',-9,-1,'2021-01-20');
+ERROR:  insert or update on table "weathers" violates foreign key constraint "weathers_city_fkey"
+DETAIL:  Key (city)=(Biskek) is not present in table "cities".
+weather_db=# select * from cities;
+  name   | country |  location  
+---------+---------+------------
+ Bishkek | KG      | (123,-84)
+ Osh     | KG      | (124,-123)
+(2 rows)
+
+weather_db=# INSERT INTO weathers(city ,temp_to,temp_hi,date) VALUES
+('Bishkek',13,27,'2022-04-21'),
+('Osh',-9,-1,'2021-01-20');
+weather_db=# INSERT INTO weathers(city ,temp_to,temp_hi,date) VALUES ('Jalal-Abad',10,37,'2021-08-13');
+ERROR:  insert or update on table "weathers" violates foreign key constraint "weathers_city_fkey"
+DETAIL:  Key (city)=(Jalal-Abad) is not present in table "cities".
+weather_db=# CREATE TABLE persons(
+weather_db(# id serial PRIMARY KEY, name varchar(50), lastname varchar(70));
+CREATE TABLE
+weather_db=# select * from persons;
+ id | name | lastname 
+----+------+----------
+(0 rows)
+
+weather_db=# CREATE TABLE INNs(
+weather_db(# id serial PRIMARY KEY,
+weather_db(# inn_number bigint, 
+weather_db(# person_id int references persons(id) UNIQUE);
+CREATE TABLE
+weather_db=# \d inns
+                              Table "public.inns"
+   Column   |  Type   | Collation | Nullable |             Default              
+------------+---------+-----------+----------+----------------------------------
+ id         | integer |           | not null | nextval('inns_id_seq'::regclass)
+ inn_number | bigint  |           |          | 
+ person_id  | integer |           |          | 
+Indexes:
+    "inns_pkey" PRIMARY KEY, btree (id)
+    "inns_person_id_key" UNIQUE CONSTRAINT, btree (person_id)
+Foreign-key constraints:
+    "inns_person_id_fkey" FOREIGN KEY (person_id) REFERENCES persons(id)
+
+weather_db=# ALTER TABLE inns ADD CONSTRAINT UNIQUE(inns_number);
+ERROR:  syntax error at or near "UNIQUE"
+LINE 1: ALTER TABLE inns ADD CONSTRAINT UNIQUE(inns_number);
+                                        ^
+weather_db=# ALTER TABLE inns ADD CONSTRAINT unique_const UNIQUE(inns_number);
+ERROR:  column "inns_number" named in key does not exist
+weather_db=# ALTER TABLE inns ADD CONSTRAINT unique_const UNIQUE(inn_number);
+ALTER TABLE
+weather_db=# \d 
+                List of relations
+ Schema |      Name      |   Type   |    Owner    
+--------+----------------+----------+-------------
+ public | cities         | table    | kalashovich
+ public | inns           | table    | kalashovich
+ public | inns_id_seq    | sequence | kalashovich
+ public | persons        | table    | kalashovich
+ public | persons_id_seq | sequence | kalashovich
+ public | weathers       | table    | kalashovich
+(6 rows)
+
+weather_db=# \d inns
+                              Table "public.inns"
+   Column   |  Type   | Collation | Nullable |             Default              
+------------+---------+-----------+----------+----------------------------------
+ id         | integer |           | not null | nextval('inns_id_seq'::regclass)
+ inn_number | bigint  |           |          | 
+ person_id  | integer |           |          | 
+Indexes:
+    "inns_pkey" PRIMARY KEY, btree (id)
+    "inns_person_id_key" UNIQUE CONSTRAINT, btree (person_id)
+    "unique_const" UNIQUE CONSTRAINT, btree (inn_number)
+Foreign-key constraints:
+    "inns_person_id_fkey" FOREIGN KEY (person_id) REFERENCES persons(id)
+
+weather_db=# INSERT INTO persons VALUES ('Kalash','Kalashovich'),('Acosadors','Kalashov');
+ERROR:  invalid input syntax for type integer: "Kalash"
+LINE 1: INSERT INTO persons VALUES ('Kalash','Kalashovich'),('Acosad...
+                                    ^
+weather_db=# INSERT INTO persons(name, last_name) VALUES ('Kalash','Kalashovich'),('Acosadors','Kalashov');
+ERROR:  column "last_name" of relation "persons" does not exist
+LINE 1: INSERT INTO persons(name, last_name) VALUES ('Kalash','Kalas...
+                                  ^
+weather_db=# INSERT INTO persons(name, lastname) VALUES ('Kalash','Kalashovich'),('Acosadors','Kalashov');
+INSERT 0 2
+weather_db=# \d persons;
+                                    Table "public.persons"
+  Column  |         Type          | Collation | Nullable |               Default               
+----------+-----------------------+-----------+----------+-------------------------------------
+ id       | integer               |           | not null | nextval('persons_id_seq'::regclass)
+ name     | character varying(50) |           |          | 
+ lastname | character varying(70) |           |          | 
+Indexes:
+    "persons_pkey" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "inns" CONSTRAINT "inns_person_id_fkey" FOREIGN KEY (person_id) REFERENCES persons(id)
+
+weather_db=# SELECT * FROM persons;
+ id |   name    |  lastname   
+----+-----------+-------------
+  1 | Kalash    | Kalashovich
+  2 | Acosadors | Kalashov
+(2 rows)
+
+weather_db=# INSERT INTO inns (inn_number, person_id) VALUES 
+weather_db-# (2270809, 1),(2211223,2);
+INSERT 0 2
+weather_db=# SELECT * FROM inns;
+ id | inn_number | person_id 
+----+------------+-----------
+  1 |    2270809 |         1
+  2 |    2211223 |         2
+(2 rows)
+
+weather_db=# \d 
+                List of relations
+ Schema |      Name      |   Type   |    Owner    
+--------+----------------+----------+-------------
+ public | cities         | table    | kalashovich
+ public | inns           | table    | kalashovich
+ public | inns_id_seq    | sequence | kalashovich
+ public | persons        | table    | kalashovich
+ public | persons_id_seq | sequence | kalashovich
+ public | weathers       | table    | kalashovich
+(6 rows)
+
+weather_db=# \dt
+            List of relations
+ Schema |   Name   | Type  |    Owner    
+--------+----------+-------+-------------
+ public | cities   | table | kalashovich
+ public | inns     | table | kalashovich
+ public | persons  | table | kalashovich
+ public | weathers | table | kalashovich
+(4 rows)
+
+weather_db=# INSERT INTO in
+information_schema.administrable_role_authorizations      information_schema._pg_user_mappings
+information_schema.applicable_roles                       information_schema.referential_constraints
+information_schema.attributes                             information_schema.role_column_grants
+information_schema.character_sets                         information_schema.role_routine_grants
+information_schema.check_constraint_routine_usage         information_schema.role_table_grants
+information_schema.check_constraints                      information_schema.role_udt_grants
+information_schema.collation_character_set_applicability  information_schema.role_usage_grants
+information_schema.collations                             information_schema.routine_privileges
+information_schema.column_column_usage                    information_schema.routines
+information_schema.column_domain_usage                    information_schema.schemata
+information_schema.column_options                         information_schema.sequences
+information_schema.column_privileges                      information_schema.sql_features
+weather_db=# INSERT INTO inns (inn_number , person_id) VALUES 
+weather_db-# (2211122, 1);
+ERROR:  duplicate key value violates unique constraint "inns_person_id_key"
+DETAIL:  Key (person_id)=(1) already exists.
+weather_db=# SELECT * FROM persons;
+ id |   name    |  lastname   
+----+-----------+-------------
+  1 | Kalash    | Kalashovich
+  2 | Acosadors | Kalashov
+(2 rows)
+
+weather_db=# INSERT INTO p
+persons           pg_catalog.       pg_temp_1.        pg_toast.         pg_toast_temp_1.  public.
+weather_db=# INSERT INTO persons(name, lastname) VALUES ('Sansa','Startk');
+INSERT 0 1
+weather_db=# CREATE TABLE banks()
+weather_db-# fafafafaf
+weather_db-# ;
+ERROR:  syntax error at or near "fafafafaf"
+LINE 2: fafafafaf
+        ^
+weather_db=# CREATE TABLE banks(
+weather_db(# id serial primary key,
+weather_db(# name varchar UNIQUE,
+weather_db(# );
+ERROR:  syntax error at or near ")"
+LINE 4: );
+        ^
+weather_db=# CREATE TABLE banks(
+id serial primary key,
+name varchar UNIQUE 
+);
+CREATE TABLE
+weather_db=# CREATE TABLE clients_of_banks(
+weather_db(# id serial primary key,
+weather_db(# client_id int references person(id),
+weather_db(# bank_id int references banks(id));
+ERROR:  relation "person" does not exist
+weather_db=# CREATE TABLE clients_of_banks(
+id serial primary key,
+client_id int references persons(id),
+bank_id int references banks(id));
+CREATE TABLE
+weather_db=# \dt
+                List of relations
+ Schema |       Name       | Type  |    Owner    
+--------+------------------+-------+-------------
+ public | banks            | table | kalashovich
+ public | cities           | table | kalashovich
+ public | clients_of_banks | table | kalashovich
+ public | inns             | table | kalashovich
+ public | persons          | table | kalashovich
+ public | weathers         | table | kalashovich
+(6 rows)
+
+weather_db=# SELECT * FROM persons;
+ id |   name    |  lastname   
+----+-----------+-------------
+  1 | Kalash    | Kalashovich
+  2 | Acosadors | Kalashov
+  3 | Sansa     | Startk
+(3 rows)
+
+weather_db=# SELECT * FROM banks;
+ id | name 
+----+------
+(0 rows)
+
+weather_db=# INSERT INTO banks (name) VALUES ('KICB'),('Optima'),('RSK bank');
+INSERT 0 3
+weather_db=# SELECT * FROM banks;
+ id |   name   
+----+----------
+  1 | KICB
+  2 | Optima
+  3 | RSK bank
+(3 rows)
+
+weather_db=# INSERT INTO clients_of_banks (client_id , bank_id) VALUES 
+weather_db-# (1,2) , (1,3) , (2,3), (2,1), (3,1), (3,2);
+INSERT 0 6
+weather_db=# SELECT * FROM clients_of_banks;
+ id | client_id | bank_id 
+----+-----------+---------
+  1 |         1 |       2
+  2 |         1 |       3
+  3 |         2 |       3
+  4 |         2 |       1
+  5 |         3 |       1
+weather_db=# SELECT p.name as client, b.name as bank FROM persons p, banks b, (SELECT * FROM clients_of_banks) clients WHERE p.id = clients.client_id AND b.id = clients.bank_id;
+  client   |   bank   
+-----------+----------
+ Kalash    | Optima
+ Kalash    | RSK bank
+ Acosadors | RSK bank
+ Acosadors | KICB
+ Sansa     | KICB
+ Sansa     | Optima
+(6 rows)
+
+weather_db=# SELECT p.name as client, b.name as bank FROM persons p, banks b, (clients_of_banks) clients WHERE p.id = clients.client_id AND b.id = clients.bank_id;
+ERROR:  syntax error at or near ")"
+LINE 1: ...as bank FROM persons p, banks b, (clients_of_banks) clients ...
+weather_db=# SELECT p.name as client, b.name as bank FROM persons p, banks b, (clients_of_banks) clients weathweather_db=# SELECT p.name as client, b.name as bank FROM persons p, banks b, (SELECT * FROM clients_of_banks) clients WHERE p.id = clients.client_id AND b.id = clients.bank_id;
+  client   |   bank   
+-----------+----------
+ Kalash    | Optima
+ Kalash    | RSK bank
+ Acosadors | RSK bank
+ Acosadors | KICB
+ Sansa     | KICB
+ Sansa     | Optima
+(6 rows)
+
+weather_db=# 
+weather_db=# 
+weather_db=# 
+weather_db=# 
+weather_db=# 
+weather_db=# 
+weather_db=# 
+weather_db=# 
+weather_db=# 
+weather_db=# 
+weather_db=# SELECT p.name as client, b.name as bank FROM persons p, banks b, (SELECT * FROM clients_of_banks) clients WHERE p.id = clients.client_id AND b.id = clients.bank_id;
+  client   |   bank   
+-----------+----------
+ Kalash    | Optima
+ Kalash    | RSK bank
+ Acosadors | RSK bank
+ Acosadors | KICB
+ Sansa     | KICB
+ Sansa     | Optima
+(6 rows)
+
+weather_db=# 
+
